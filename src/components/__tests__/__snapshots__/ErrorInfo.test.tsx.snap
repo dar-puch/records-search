@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorInfo/> renders correctly 1`] = `
+<Component
+  error="350"
+>
+  <div>
+    <img
+      src="https://http.cat/350"
+    />
+  </div>
+</Component>
+`;

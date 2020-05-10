@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App/> renders correctly 1`] = `
+<div>
+  <WithStyles(ForwardRef(AppBar))
+    position="static"
+  >
+    <WithStyles(ForwardRef(Toolbar))>
+      <WithStyles(ForwardRef(Typography))
+        variant="h6"
+      >
+        Discon
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Toolbar))>
+  </WithStyles(ForwardRef(AppBar))>
+  <Styled(MuiBox)
+    m={4}
+    width="90%"
+  >
+    <WithStyles(ForwardRef(Input))
+      data-value=""
+      id="search"
+      name="searchByArtist"
+      onChange={[Function]}
+      type="search"
+    />
+    <WithStyles(ForwardRef(Button))
+      className="makeStyles-button-2"
+      color="primary"
+      onClick={[Function]}
+      variant="contained"
+    >
+      By artist
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Button))
+      className="makeStyles-button-2"
+      color="primary"
+      onClick={[Function]}
+      variant="contained"
+    >
+      By label
+    </WithStyles(ForwardRef(Button))>
+    <Styled(MuiBox)
+      m={4}
+    />
+    0
+  </Styled(MuiBox)>
+  <WithStyles(ForwardRef(AppBar))
+    className="makeStyles-toolbar-1"
+    position="static"
+  >
+    <WithStyles(ForwardRef(Toolbar))>
+      <WithStyles(ForwardRef(Typography))
+        variant="subtitle2"
+      >
+        Puchweb 2020
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Toolbar))>
+  </WithStyles(ForwardRef(AppBar))>
+</div>
+`;
+
+exports[`<App/> should render a RecordList when response is success 1`] = `
+<div>
+  <WithStyles(ForwardRef(AppBar))
+    position="static"
+  >
+    <WithStyles(ForwardRef(Toolbar))>
+      <WithStyles(ForwardRef(Typography))
+        variant="h6"
+      >
+        Discon
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Toolbar))>
+  </WithStyles(ForwardRef(AppBar))>
+  <Styled(MuiBox)
+    m={4}
+    width="90%"
+  >
+    <WithStyles(ForwardRef(Input))
+      data-value=""
+      id="search"
+      name="searchByArtist"
+      onChange={[Function]}
+      type="search"
+    />
+    <WithStyles(ForwardRef(Button))
+      className="makeStyles-button-2"
+      color="primary"
+      onClick={[Function]}
+      variant="contained"
+    >
+      By artist
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Button))
+      className="makeStyles-button-2"
+      color="primary"
+      onClick={[Function]}
+      variant="contained"
+    >
+      By label
+    </WithStyles(ForwardRef(Button))>
+    <Styled(MuiBox)
+      m={4}
+    />
+    0
+  </Styled(MuiBox)>
+  <WithStyles(ForwardRef(AppBar))
+    className="makeStyles-toolbar-1"
+    position="static"
+  >
+    <WithStyles(ForwardRef(Toolbar))>
+      <WithStyles(ForwardRef(Typography))
+        variant="subtitle2"
+      >
+        Puchweb 2020
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Toolbar))>
+  </WithStyles(ForwardRef(AppBar))>
+</div>
+`;
