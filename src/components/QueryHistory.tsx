@@ -1,5 +1,5 @@
 import * as React from "react";
-import { HistoryItem, removeFromHistory } from "../utils/api";
+import { HistoryItem, updateHistory } from "../utils/api";
 import { Button, ListItem, ListItemText, Typography } from "@material-ui/core";
 
 export interface IQueryHistory {

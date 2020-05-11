@@ -2,10 +2,9 @@ import {
   search,
   what,
   Release,
-  addToHistory,
   HistoryItem,
   getHistory,
-  removeFromHistory,
+  updateHistory,
 } from "./api";
 import * as React from "react";
 import { useState } from "react";
@@ -23,12 +22,7 @@ export const useQueryHistory = () => {
   const [queryHistory, setQueryHistory] = useState<HistoryItem[]>([]);
 
   React.useEffect(() => {
-    const fn = async () => {
-      try {
-      setQueryHistory(await getHistory());
-    } catch (e) { console.log('cannot load query history data')}
-  }
-    fn();
+    setQueryHistory(getHistory())
   }, []);
 
   const saveQuery = (inputValue: string, what: what, releases: Release[]) => {
@@ -38,21 +32,20 @@ export const useQueryHistory = () => {
       parameters: { queryString: inputValue, what },
       result: releases,
     };
-    try {
-      setQueryHistory([...queryHistory, queryInfo]);
-      addToHistory(queryInfo);
-    } catch (error) {
-      throw new Error("saving query failed " + error.message);
-    }
+    const historyWithAddedItem = [...queryHistory, queryInfo]
+
+    setQueryHistory(historyWithAddedItem);
+    updateHistory(historyWithAddedItem);
   };
 
-  const deleteHistoryItem = async (id: string) => {
-    await removeFromHistory(id);
-    setQueryHistory(queryHistory.filter((item) => item.queryId !== id));
+  const deleteHistoryItem =  (id: string) => {
+    const historyWithDeletedItem = queryHistory.filter((item) => item.queryId !== id)
+    updateHistory(historyWithDeletedItem);
+    setQueryHistory(historyWithDeletedItem);
   };
 
-  const clearHistory = async () => {
-    await removeFromHistory("all");
+  const clearHistory =  () => {
+    updateHistory([]);
     setQueryHistory([]);
   };
 

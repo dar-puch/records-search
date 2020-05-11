@@ -4,22 +4,23 @@ import { renderHook, act } from "@testing-library/react-hooks";
 import { today } from "../today";
 import { v1 } from "uuid";
 
-jest.mock("discon/dist");
+jest.mock("../api");
+// eslint-disable-next-line import/first
 import {
   search,
   what,
   Release,
-  addToHistory,
+  updateHistory,
   HistoryItem,
   getHistory,
-  removeFromHistory,
-} from "discon/dist";
+  updateHistory,
+} from "../api";
 
 jest.mock("uuid");
 jest.mock("../today");
 
-const mockedAddToHistory = addToHistory as jest.Mock;
-const mockedRemoveFromHistory = removeFromHistory as jest.Mock;
+const mockedupdateHistory = updateHistory as jest.Mock;
+const mockedupdateHistory = updateHistory as jest.Mock;
 const mockedGetHistory = getHistory as jest.Mock;
 const mockedv1 = v1 as jest.Mock;
 const mockedToday = today as jest.Mock;
@@ -94,11 +95,11 @@ describe("useQueryHistory", () => {
       result: releases,
     };
 
-    expect(mockedAddToHistory).toHaveBeenCalledWith(expectedQueryInfo);
+    expect(mockedupdateHistory).toHaveBeenCalledWith(expectedQueryInfo);
   });
 
   it("throws an error when saving fails", () => {
-    mockedAddToHistory.mockImplementation(() => {
+    mockedupdateHistory.mockImplementation(() => {
       throw new Error("400");
     });
 
@@ -112,7 +113,7 @@ describe("useQueryHistory", () => {
     await getHistory();
     await result.current.deleteHistoryItem("23re");
 
-    expect(mockedRemoveFromHistory).toHaveBeenCalledWith("23re");
+    expect(mockedupdateHistory).toHaveBeenCalledWith("23re");
     expect(result.current.queryHistory).toHaveLength(1);
   });
 
@@ -122,7 +123,7 @@ describe("useQueryHistory", () => {
 
     await result.current.clearHistory();
 
-    expect(mockedRemoveFromHistory).toHaveBeenCalledWith("all");
+    expect(mockedupdateHistory).toHaveBeenCalledWith("all");
     expect(result.current.queryHistory).toHaveLength(0);
   });
 });

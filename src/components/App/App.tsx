@@ -58,15 +58,15 @@ const App = (): JSX.Element => {
   const saveSearchResult = async (what: what): Promise<void> => {
     setResponseState(responseStateValues.loading);
     try {
-      const releases = await fetchArtist(inputValue, what);
-      setRecList(releases);
-      saveQuery(inputValue, what, releases);
-
+      const result = await fetchArtist(inputValue, what);
+      setRecList(result.results);
+      saveQuery(inputValue, what, result.results);
       setResponseState(responseStateValues.success);
     } catch (error) {
       setError(error.message);
       setResponseState(responseStateValues.failure);
     }
+    console.log('list: ', recList)
   };
 
   const renderSwitch = (responseState: responseStateValues) => {
