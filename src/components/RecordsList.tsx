@@ -2,23 +2,33 @@ import React from "react";
 import { Release } from "../utils/api";
 import {
   Box,
-  GridList,
-  GridListTile,
   Card,
   CardActionArea,
   CardMedia,
   CardContent,
   Typography,
 } from "@material-ui/core";
-
+import { makeStyles } from "@material-ui/core/styles";
 interface IRecordsList {
   list: Release[];
 }
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper,
+  }
+}));
 
-export const RecordsList: React.FC<IRecordsList> = ({ list }) => (
-  <GridList cellHeight={350} cols={9} spacing={6}>
+
+export const RecordsList: React.FC<IRecordsList> = ({ list }) => { 
+  const classes = useStyles();
+  return (
+  <div className={classes.root}>
     {list.map((item, index) => (
-      <GridListTile cols={2} key={index}>
+      <Box width={200} height={300} m={3} key={index}>
         <Card>
           <CardActionArea>
             <CardMedia
@@ -30,16 +40,19 @@ export const RecordsList: React.FC<IRecordsList> = ({ list }) => (
               title={item.title}
             />
             <CardContent>
+              <Box textOverflow="ellipsis" height={150}>
               <Typography gutterBottom={true} variant="body1">
                 {item.title}
               </Typography>
               <Typography variant="body2" color="textSecondary">
                 cat number: {item.catno} <br /> year: {item.year}
               </Typography>
+              </Box>
             </CardContent>
           </CardActionArea>
         </Card>
-      </GridListTile>
+      </Box>
     ))}
-  </GridList>
+ </div>
 );
+    }
