@@ -119,7 +119,7 @@ const App = (): JSX.Element => {
           By label
         </Button>
         <Box m={4}>{renderSwitch(responseState)}</Box>
-        {queryHistory.length && (
+        {queryHistory.length > 0 && (
           <QueryHistory
             clear={clearHistory}
             history={queryHistory}
