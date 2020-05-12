@@ -1,4 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Records-search
+React/TS application connected to Discogs API. Displays discography of searched artist/label ande saves search history to local storage.
 
 ## Available Scripts
 
