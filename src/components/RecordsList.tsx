@@ -2,9 +2,6 @@ import React from "react";
 import { Release } from "../utils/api";
 import {
   Box,
-  Grid,
-  GridList,
-  GridListTile,
   Card,
   CardActionArea,
   CardMedia,
@@ -31,7 +28,7 @@ export const RecordsList: React.FC<IRecordsList> = ({ list }) => {
   return (
   <div className={classes.root}>
     {list.map((item, index) => (
-      <Box width={200} height={300} m={3} key={index}>
+      <Box overflow="hidden" width="200" height="300" m={3} key={index}>
         <Card>
           <CardActionArea>
             <CardMedia
@@ -43,7 +40,7 @@ export const RecordsList: React.FC<IRecordsList> = ({ list }) => {
               title={item.title}
             />
             <CardContent>
-              <Box textOverflow="ellipsis" height={150}>
+              <Box textOverflow="ellipsis" height="150">
               <Typography gutterBottom={true} variant="body1">
                 {item.title}
               </Typography>
