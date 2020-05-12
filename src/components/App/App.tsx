@@ -14,7 +14,7 @@ import {
   Box,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { fetchArtist, useQueryHistory } from "../../utils/functions";
+import { fetchType, useQueryHistory } from "../../utils/functions";
 
 export enum responseStateValues {
   "idle",
@@ -58,7 +58,7 @@ const App = (): JSX.Element => {
   const saveSearchResult = async (what: what): Promise<void> => {
     setResponseState(responseStateValues.loading);
     try {
-      const result = await fetchArtist(inputValue, what);
+      const result = await fetchType(inputValue, what);
       setRecList(result.results);
       saveQuery(inputValue, what, result.results);
       setResponseState(responseStateValues.success);

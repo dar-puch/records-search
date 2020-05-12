@@ -11,13 +11,14 @@ import { useState } from "react";
 import { v1 } from "uuid";
 import { today } from "./today";
 
-export const fetchArtist = async (inputValue: string, what: what) => {
+export const fetchType = async (inputValue: string, what: what) => {
   try {
     return await search(inputValue, what);
   } catch (error) {
     throw new Error(error.message);
   }
 };
+
 export const useQueryHistory = () => {
   const [queryHistory, setQueryHistory] = useState<HistoryItem[]>([]);
 

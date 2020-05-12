@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useQueryHistory, fetchArtist } from "../functions";
+import { useQueryHistory, fetchType } from "../functions";
 import { renderHook, act } from "@testing-library/react-hooks";
 import { today } from "../today";
 import { v1 } from "uuid";
@@ -128,15 +128,15 @@ describe("useQueryHistory", () => {
   });
 });
 
-describe("fetchArtist", () => {
+describe("fetchType", () => {
   it("calls search with expected parameters ", () => {
-    fetchArtist("U2", "artist");
+    fetchType("U2", "artist");
     expect(mockedSearch).toHaveBeenCalledWith("U2", "artist");
   });
   it("throws an error when search fails ", () => {
     mockedSearch.mockImplementation(() => {
       throw new Error("400");
     });
-    expect(fetchArtist).toThrowError("400");
+    expect(fetchType).toThrowError("400");
   });
 });
